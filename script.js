@@ -33,6 +33,11 @@ class LinkedList {
 		}
 	}
 
+	firstNode() {
+		let firstNode = this.head;
+		console.log(`The first value in the list is ${firstNode.value}`);
+	}
+
 	printList() {
 		let currentNode = this.head;
 		while (currentNode !== null) {
@@ -65,3 +70,5 @@ list.prepend(200);
 list.printList();
 
 list.size();
+
+list.firstNode();
