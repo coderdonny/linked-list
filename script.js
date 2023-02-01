@@ -22,6 +22,17 @@ class LinkedList {
 		}
 	}
 
+	prepend(value) {
+		let newNode = new Node(value);
+		if (!this.head) {
+			this.head = newNode;
+			this.tail = newNode;
+		} else {
+			newNode.nextNode = this.head;
+			this.head = newNode;
+		}
+	}
+
 	printList() {
 		let currentNode = this.head;
 		while (currentNode !== null) {
@@ -38,5 +49,7 @@ list.append(2);
 list.append(3);
 list.append(1);
 list.append(90);
+list.prepend(100);
+list.prepend(200);
 
 list.printList();
