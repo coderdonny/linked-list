@@ -55,6 +55,20 @@ class LinkedList {
 		}
 		console.log(`This list has ${size} stored values.`);
 	}
+
+	atIndex(value) {
+		let size = 0;
+		let currentNode = this.head;
+		while (currentNode !== null) {
+			if (size === value) {
+				console.log(
+					`The value at index ${value} is ${currentNode.value}`
+				);
+			}
+			size++;
+			currentNode = currentNode.nextNode;
+		}
+	}
 }
 
 let list = new LinkedList();
@@ -72,3 +86,5 @@ list.printList();
 list.size();
 
 list.firstNode();
+
+list.atIndex(2);
