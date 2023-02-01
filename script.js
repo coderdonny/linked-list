@@ -40,6 +40,16 @@ class LinkedList {
 			currentNode = currentNode.nextNode;
 		}
 	}
+
+	size() {
+		let size = 0;
+		let currentNode = this.head;
+		while (currentNode !== null) {
+			size++;
+			currentNode = currentNode.nextNode;
+		}
+		console.log(`This list has ${size} stored values.`);
+	}
 }
 
 let list = new LinkedList();
@@ -53,3 +63,5 @@ list.prepend(100);
 list.prepend(200);
 
 list.printList();
+
+list.size();
