@@ -1,12 +1,42 @@
-class LinkedList {
-	constructor() {}
-}
-
 class Node {
-	constructor(value, nextNode) {
+	constructor(value = null, nextNode = null) {
 		this.value = value;
 		this.nextNode = nextNode;
 	}
 }
 
-const hello = document.querySelector('.hello');
+class LinkedList {
+	constructor() {
+		this.head = null;
+		this.tail = null;
+	}
+
+	append(value) {
+		let newNode = new Node(value);
+		if (!this.head) {
+			this.head = newNode;
+			this.tail = newNode;
+		} else {
+			this.tail.nextNode = newNode;
+			this.tail = newNode;
+		}
+	}
+
+	printList() {
+		let currentNode = this.head;
+		while (currentNode !== null) {
+			console.log(currentNode.value);
+			currentNode = currentNode.nextNode;
+		}
+	}
+}
+
+let list = new LinkedList();
+
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(1);
+list.append(90);
+
+list.printList();
