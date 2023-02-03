@@ -69,6 +69,18 @@ class LinkedList {
 			currentNode = currentNode.nextNode;
 		}
 	}
+
+	contains(value) {
+		let size = 0;
+		let currentNode = this.head;
+		while (currentNode !== null) {
+			if (currentNode.value === value) {
+				console.log(`The value: ${value} exists at index ${size}`);
+			}
+			size++;
+			currentNode = currentNode.nextNode;
+		}
+	}
 }
 
 let list = new LinkedList();
@@ -88,3 +100,5 @@ list.size();
 list.firstNode();
 
 list.atIndex(2);
+
+list.contains(90);
