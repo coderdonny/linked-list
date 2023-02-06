@@ -75,6 +75,18 @@ class LinkedList {
 		let currentNode = this.head;
 		while (currentNode !== null) {
 			if (currentNode.value === value) {
+				console.log(`True`);
+			}
+			size++;
+			currentNode = currentNode.nextNode;
+		}
+	}
+
+	find(value) {
+		let size = 0;
+		let currentNode = this.head;
+		while (currentNode !== null) {
+			if (currentNode.value === value) {
 				console.log(`The value: ${value} exists at index ${size}`);
 			}
 			size++;
@@ -102,3 +114,4 @@ list.firstNode();
 list.atIndex(2);
 
 list.contains(90);
+list.find(90);
