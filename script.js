@@ -112,18 +112,21 @@ class LinkedList {
 	}
 
 	pop() {
-		let size = 0;
-		let currentNode = this.head;
-		while (currentNode !== null) {
-			if (currentNode.nextNode == null) {
-				console.log(`you popped value ${currentNode.value}`);
-				currentNode.value = null;
-				return;
-			} else {
-				currentNode = currentNode.nextNode;
-				size++;
-			}
+		if (!this.head) return null;
+		if (this.head === this.tail) {
+			let value = this.head.value;
+			this.head = null;
+			this.tail = null;
+			return value;
 		}
+		let currentNode = this.head;
+		while (currentNode.nextNode !== this.tail) {
+			currentNode = currentNode.nextNode;
+		}
+		let value = this.tail.value;
+		this.tail = currentNode;
+		this.tail.nextNode = null;
+		return value;
 	}
 }
 
