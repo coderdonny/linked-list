@@ -56,6 +56,23 @@ class LinkedList {
 		console.log(`This list has ${size} stored values.`);
 	}
 
+	toString() {
+		let size = 0;
+		let currentNode = this.head;
+		let string = '';
+		while (currentNode !== null) {
+			size++;
+			if (currentNode.nextNode === null) {
+				string += `(${currentNode.value}) + null`;
+			} else {
+				string += `(${currentNode.value}) + `;
+			}
+
+			currentNode = currentNode.nextNode;
+		}
+		console.log(string);
+	}
+
 	atIndex(value) {
 		let size = 0;
 		let currentNode = this.head;
@@ -93,6 +110,21 @@ class LinkedList {
 			currentNode = currentNode.nextNode;
 		}
 	}
+
+	pop() {
+		let size = 0;
+		let currentNode = this.head;
+		while (currentNode !== null) {
+			if (currentNode.nextNode == null) {
+				console.log(`you popped value ${currentNode.value}`);
+				currentNode.value = null;
+				return;
+			} else {
+				currentNode = currentNode.nextNode;
+				size++;
+			}
+		}
+	}
 }
 
 let list = new LinkedList();
@@ -115,3 +147,7 @@ list.atIndex(2);
 
 list.contains(90);
 list.find(90);
+
+list.toString();
+list.pop();
+list.toString();
